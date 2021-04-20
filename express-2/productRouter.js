@@ -18,6 +18,8 @@ router.get('/:productname', (req, res) => {
 // Root-path här betyder "http://localhost:3000/products"
 router.post('/', (req, res) => {
     console.log(req.body)
+    // OBS. Jag utför ingen validering eller tänker på säkerhet här.
+    products.push(req.body)
     res.send("Produkt inlagd")
 })
 
