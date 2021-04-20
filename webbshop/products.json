@@ -1,0 +1,32 @@
+[
+    {
+        "id": 8,
+        "name": "Playstation 2",
+        "price": 399,
+        "category": "konsoller"
+    },
+        {
+        "id": 27,
+        "name": "Playstation 3",
+        "price": 699,
+        "category": "konsoller"
+    },
+        {
+        "id": "e83-0ffA3Ac",
+        "name": "Gameboy",
+        "price": 1350,
+        "category": "konsoller"
+    },
+        {
+        "id": "sldf8",
+        "name": "GTA V",
+        "price": 299,
+        "category": "spel"
+    },
+        {
+        "id": "7s7xc7-lite",
+        "name": "Tetris VR",
+        "price": 11799,
+        "category": "spel"
+    }
+]
