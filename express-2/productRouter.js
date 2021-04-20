@@ -1,11 +1,12 @@
 const express = require('express')
 const router = express.Router()
+const products = require('./products')
 
-router.get('/products', (req, res) => {
+router.get('/', (req, res) => {
     res.json(products)
 })
 
-router.get('/products/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     let selectedProduct = products.find((p) => {
         return p.id == req.params.id
     })

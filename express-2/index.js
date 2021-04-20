@@ -6,17 +6,10 @@ const productRouter = require('./productRouter')
 
 const port = 3000;
 
-const products = [
-    {
-        name: 'Gräsklippare',
-        price: 300
-    },
-    {
-        name: 'Hammare',
-        color: 'red'
-    }
-]
 
+// Externa route-filer som vi använder
+app.use('/users', userRouter)
+app.use('/products', productRouter)
 
 app.get('/', (req, res) => {
     res.send("Hej")
