@@ -1,0 +1,15 @@
+html
+    head
+        title=Products
+        link(
+            href='style.css'
+            rel="stylesheet"
+            )
+    body
+        h1 Våra produkter
+        ul
+            each product in products 
+                div
+                    li=product.name
+                    p #{product.price} SEK
+        include footer.pug

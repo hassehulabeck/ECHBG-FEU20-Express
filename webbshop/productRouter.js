@@ -6,7 +6,7 @@ const products = require('./products.json')
 
 router.route('/')
     .get((req, res) => {
-        res.json(products)
+        res.render('products', {products: products})
     })
     .post((req, res) => {
         // Här kan du göra bättre säkerhetskontroll. 

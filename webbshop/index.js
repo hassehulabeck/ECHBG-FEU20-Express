@@ -8,8 +8,10 @@ app.use(express.urlencoded())
 app.use(express.static(__dirname + '/public'))
 app.use('/products', productRouter)
 
+app.set('view engine', 'pug')
+
 app.get('/', (req, res) => {
-    res.sendFile('index.html')
+    res.render('index')
 })
 
 
