@@ -21,11 +21,11 @@ app.get('/', (req, res) => {
 app.get('/user', (req, res) => {
     res.status(403).send('Not authorized')
 })
-app.get('/product', (req, res) => {
-    res.json(products[0])
+app.get('/products', (req, res) => {
+    res.json(products)
 })
 app.get('*', (req, res) => {
-    res.send(` ${req.url} not found`)
+    res.status(404).sendFile('404.html', {root: __dirname + '/public'})
 })
 
 app.listen(port, () => {
