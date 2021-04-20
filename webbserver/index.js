@@ -10,7 +10,7 @@ const products = [
     },
     {
         id: 'A47dtE',
-        name: 'Hyvel red',
+        name: 'Hyvel',
         price: 49
     }
 ]
@@ -26,14 +26,10 @@ app.get('/products', (req, res) => {
 
 // Visa en produkt - det som står efter kolon återfinns i req.params
 app.get('/products/:productId', (req, res) => {
-    let selectedProducts = products.filter((product) => {
-        for (property in product) {
-            if (product[property].toString().includes(req.params.productId)) {
-                return product
-            }
-        }
+    let selectedProduct = products.find((product) => {
+        return product.id == req.params.productId
     })
-    res.json(selectedProducts)
+    res.json(selectedProduct)
 })
 
 
