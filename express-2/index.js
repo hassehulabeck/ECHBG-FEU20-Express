@@ -6,6 +6,7 @@ const productRouter = require('./productRouter')
 
 const port = 3000;
 
+app.use(express.urlencoded())
 
 // Externa route-filer som vi använder
 app.use('/users', userRouter)

@@ -2,15 +2,23 @@ const express = require('express')
 const router = express.Router()
 const products = require('./products')
 
+// Root-path här betyder "http://localhost:3000/products"
 router.get('/', (req, res) => {
     res.json(products)
 })
 
-router.get('/:id', (req, res) => {
+// Pathen här betyder "http://localhost:3000/products/:id"
+router.get('/:productname', (req, res) => {
     let selectedProduct = products.find((p) => {
-        return p.id == req.params.id
+        return p.name == req.params.productname
     })
     res.json(selectedProduct)
+})
+
+// Root-path här betyder "http://localhost:3000/products"
+router.post('/', (req, res) => {
+    console.log(req.body)
+    res.send("Produkt inlagd")
 })
 
 
