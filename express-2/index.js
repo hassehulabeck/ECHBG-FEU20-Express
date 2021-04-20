@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
 
+const userRouter = require('./userRouter')
+const productRouter = require('./productRouter')
+
 const port = 3000;
 
 const products = [
@@ -18,12 +21,7 @@ const products = [
 app.get('/', (req, res) => {
     res.send("Hej")
 })
-app.get('/user', (req, res) => {
-    res.status(403).send('Not authorized')
-})
-app.get('/products', (req, res) => {
-    res.json(products)
-})
+
 app.get('*', (req, res) => {
     res.status(404).sendFile('404.html', {root: __dirname + '/public'})
 })
