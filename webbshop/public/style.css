@@ -1,0 +1,14 @@
+html {
+    background-color: antiquewhite;
+    color: purple
+}
+
+body {
+    width: 66%;
+    margin: 0 auto;
+}
+
+h1,
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
