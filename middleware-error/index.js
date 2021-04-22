@@ -4,9 +4,11 @@ const fs = require('fs')
 let simulatedError = false
 
 // Middleware för de två path som vi har.
-app.use('/', (req, res, next) => {
+app.use('/www', (req, res, next) => {
     // Här kan vi exempelvis kontrollera om ett värde är mindre än ett annat. 
     // alltså vanlig synkron kod
+    simulatedError = true
+
     if (simulatedError)     
         throw new Error('fel vid root-request')
     else {
@@ -20,7 +22,7 @@ app.use('/text', function (req, res, next) {
         if (err) 
             next(err)
         else
-            res.json(data)
+            res.myMessage = data
             // Lite märkligt att next inte behövs för "avslut" här.
     })
 })
@@ -32,12 +34,12 @@ app.use((err, req, res, next) => {
 })
 
 // Så länge som det inte blir fel körs de här.
-app.get('/', (req, res) => {
+app.get('/www', (req, res) => {
     res.send(res.myMessage)
 })
 
 app.get('/text', (req, res) => {
-    res.json("Hej")
+    res.json(res.myMessage)
 })
 
 app.listen(3000, () => {
