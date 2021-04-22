@@ -3,7 +3,7 @@ const axios = require('axios')
 const app = express()
 
 const port = 3000
-const url = 'https://offdkficial-joke-api.appspot.com/random_joke'
+const url = 'https://official-joke-api.appspot.com/random_joke'
 
 app.use( async(request, response, next) => {
 
