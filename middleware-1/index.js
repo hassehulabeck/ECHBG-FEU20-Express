@@ -4,8 +4,7 @@ const app = express()
 const port = 3000
 
 let requestTime = function(req, res, next) {
-    req.requestTime = Date.now()
-    console.log(req.requestTime)
+    res.requeTime = Date.now()
     next()
 }
 
@@ -15,7 +14,7 @@ app.get('/', (req, res) => {
     res.send(`Hallå.`)
 })
 app.get('/ho', (req, res) => {
-    res.send(`Hallå, det har passerat ${req.requestTime} millisekunder sedan 1 januari 1970.`)
+    res.send(`Hallå, det har passerat ${res.requeTime} millisekunder sedan 1 januari 1970.`)
 })
 
 

@@ -26,7 +26,7 @@ router.route('/')
         res.send("Product inserted")
     })
 
-router.route('/:id')
+router.route('/:id') // http://localhost:3000/products/3
     .get((req, res) => {
         let selectedProduct = products.find((product) => {
             return product.id == req.params.id

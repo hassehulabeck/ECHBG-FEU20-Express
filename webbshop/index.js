@@ -4,6 +4,7 @@ const port = 3000
 
 const productRouter = require('./productRouter')
 
+// I äldre filer ser ni oftast body-parser isf .urlencoded
 app.use(express.urlencoded())
 app.use(express.static(__dirname + '/public'))
 app.use('/products', productRouter)
