@@ -3,24 +3,32 @@ const axios = require('axios')
 const app = express()
 
 const port = 3000
-const url = 'https://official-joke-api.appspot.com/random_joke'
+const url = 'https://offdkficial-joke-api.appspot.com/random_joke'
 
-app.use( async(req, res, next) => {
+app.use( async(request, response, next) => {
 
     await axios.get(url)
         .then((res) => {
-            res.joke = res
+            response.joke = res.data
         })
-        .error((err) => {
+        .catch((err) => {
             console.error(err)
+            next(err)
         })
-        .finally(() => {
-            next()
-        })
+    
+    next()
 })
 
+// Error hantering
+app.use((err, req, res, next) => {
+    res.send(err.message + " Vill du gå till startsidan?")
+})
 
 app.get('/', (req, res) => {
+    res.json(res.joke)
+})
+
+app.get('/joke', (req, res) => {
     res.json(res.joke)
 })
 
